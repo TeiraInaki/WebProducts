@@ -1,0 +1,56 @@
+﻿@model WebProducts.Models.Product
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Product</h2>
+
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+    {
+        <div>
+            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayFor(model => model.Id)
+            @Html.HiddenFor(model => model.Id)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Category)
+            @Html.EditorFor(model => model.Category)
+            @Html.ValidationMessageFor(model => model.Category)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ProductName)
+            @Html.EditorFor(model => model.ProductName)
+            @Html.ValidationMessageFor(model => model.ProductName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.AvailableDate)
+            @Html.EditorFor(model => model.AvailableDate)
+            @Html.ValidationMessageFor(model => model.AvailableDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    }
+
+    @Html.ActionLink("Back to Products", "Index", "Product")
+</body>
+</html>

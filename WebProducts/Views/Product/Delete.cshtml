@@ -1,0 +1,92 @@
+﻿@model WebProducts.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .detalles {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+    {
+    <fieldset>
+        <legend>Delete Product</legend>
+        <div class="detalles">
+            <div class="display-label">
+                @* Nombre de la Columna *@
+                @Html.DisplayNameFor(model => model.Id)
+            </div>
+            <div class="display-text">
+                @* Valor de la Columna *@
+                @Html.DisplayFor(model => model.Id)
+            </div>
+        </div>
+        <div class="detalles">
+            <div class="display-label">
+                @* Nombre de la Columna *@
+                @Html.DisplayNameFor(model => model.Category)
+            </div>
+            <div class="display-text">
+                @* Valor de la Columna *@
+                @Html.DisplayFor(model => model.Category)
+            </div>
+        </div>
+        <div class="detalles">
+            <div class="display-label">
+                @* Nombre de la Columna *@
+                @Html.DisplayNameFor(model => model.ProductName)
+            </div>
+            <div class="display-text">
+                @* Valor de la Columna *@
+                @Html.DisplayFor(model => model.ProductName)
+            </div>
+        </div>
+        <div class="detalles">
+            <div class="display-label">
+                @* Nombre de la Columna *@
+                @Html.DisplayNameFor(model => model.Description)
+            </div>
+            <div class="display-text">
+                @* Valor de la Columna *@
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </div>
+        <div class="detalles">
+            <div class="display-label">
+                @* Nombre de la Columna *@
+                @Html.DisplayNameFor(model => model.AvailableDate)
+            </div>
+            <div class="display-text">
+                @* Valor de la Columna *@
+                @Html.DisplayFor(model => model.AvailableDate)
+            </div>
+        </div>
+        <div class="detalles">
+            <p>
+                <input type="submit" value="Delete" />
+            </p>
+        </div>
+    </fieldset>
+
+
+
+    }
+        <p>
+            @Html.ActionLink("Back to Products", "Index", "Product")
+        </p>
+</body>
+</html>

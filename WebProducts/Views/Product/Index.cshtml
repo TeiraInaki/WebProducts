@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebProducts.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Index</h1>
+    <p>@Html.ActionLink("Create New", "Create", "Product")</p>
+
+    <table>
+        <tr>            
+            <th>@Html.DisplayNameFor(model => model.Category)</th>
+            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.AvailableDate)</th>
+            
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>                
+                <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.AvailableDate)</td>
+                <td>
+                    @Html.ActionLink("Detail", "Detail", new { id = item.Id })
+                    |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
